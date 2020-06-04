@@ -74,15 +74,14 @@
                                     <h5 style="color: #073e89;"><t t-esc="o.policy_num"/></h5>
                                     <h5 style="color: #073e89;">Policy Schedule</h5>
                                 </div>
-<!--                                <div style="border-bottom: 1px solid;">-->
-<!--                                </div>-->
+
                             </div>
                         </t>
                         <t t-if="o.policy_lang == 'ar'">
-                            <div class="page" style="direction: rtl !important;">
+                            <div class="page" style="unicode-bidi: bidi-override !important; direction: unset !important;text-align:right !important;">                            
 
-                                <div class="row mt32 mb32" style="padding-left: 25px !important; padding-right: 25px !important;">
-                                    <div  style="width: 100% !important; float:right !important;  padding-left:10px; margin-top:10px !important;">
+                                <div  style="padding-left: 25px !important; padding-right: 25px !important; padding-top:10px;">
+                                    <div  style="width: 100% !important; padding-left:10px; margin-top:15px !important;">
                                         <span style="padding-left:5px; color: #073e89;">رقم الوثيقة :</span>
                                         <span><t t-esc="o.policy_num"/></span>
                                     </div>
@@ -114,7 +113,6 @@
                                     <div  style="width: 33.33% !important; float:right !important;  padding-left:10px; margin-top:10px !important;">
                                         <span style="color: #073e89;">المهنة : </span>
                                         <span t-esc="o.job.ar_job_id" />
-    <!--                                    <span><t t-esc="o.DOB"/></span>-->
                                     </div>
                                     <div  style="width: 33.33% !important; float:right !important;  padding-left:10px; margin-top:10px !important;">
                                         <span style="color: #073e89;">مكان الإقامة : </span>
@@ -130,71 +128,12 @@
                                     </div>
                                     <div  style="width: 33.33% !important; float:right !important;  padding-left:10px; margin-top:10px !important;">
                                         <span style="color: #073e89;">تاريخ بدء التأمين : </span>
-                                        <span><t t-esc="datetime.datetime.strptime(o.issue_date, '%Y-%m-%d').strftime('%d/%m/%Y')"  /></span>
+                                        <span><t t-esc="o.issue_date.strftime('%d/%m/%Y')"  /></span>
                                     </div>
                                     <div  style="width: 33.33% !important; float:right !important;  padding-left:10px; margin-top:10px !important;" >
                                         <span style="color: #073e89;">تاريخ انتهاء التأمين : </span>
-                                        <span><t t-esc="datetime.datetime.strptime(o.expiry_date, '%Y-%m-%d').strftime('%d/%m/%Y')"  /></span>
+                                        <span><t t-esc="o.expiry_date.strftime('%d/%m/%Y')"  /></span>
                                     </div>
-
-
-    <!--                                     <table class="table table-hover">-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">رقم الوثيقة</th>-->
-    <!--                                                <td><t t-esc="o.policy_num"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">اسم المتعاقد / المؤمن عليه</th>-->
-    <!--                                                <td><t t-esc="o.customer"/></td>-->
-    <!--                                            </tr>-->
-
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">اثبات الشخصية</th>-->
-    <!--                                                <td><t t-esc="o.national_id"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">المهنة</th>-->
-    <!--                                                <td><t t-esc="o.job"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">الجنسية</th>-->
-    <!--                                                <td></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">مكان الاقامة</th>-->
-    <!--                                                <td><t t-esc="o.address"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                    </table>-->
-    <!--                                </div>-->
-    <!--                                <div  style="width: 50% !important; float:left !important;">-->
-    <!--                                    <table class="table table-hover">-->
-
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">مدة التأمين</th>-->
-    <!--                                                <td></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">تاريخ بدء التأمين</th>-->
-    <!--                                                <td><t t-esc="o.issue_date"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">تاريخ انتهاء التأمين</th>-->
-    <!--                                                <td><t t-esc="o.expiry_date"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">تكرار الدفع</th>-->
-    <!--                                                <td></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">طريقة الدفع</th>-->
-    <!--                                                <td></td>-->
-    <!--                                            </tr>-->
-    <!--                                            <tr>-->
-    <!--                                                <th scope="col">العملة</th>-->
-    <!--                                                <td><t t-esc="o.currency_id"/></td>-->
-    <!--                                            </tr>-->
-    <!--                                    </table>-->
-    <!--                                </div>-->
                                     <div style="width: 100% !important; float:right !important; margin-top:10px !important;">
                                         <p style="font-size: 13px;">تم إصدار هذه الوثيقة بناء علي طلب التأمين الخاص بالمتعاقد/المؤمن عليه والذي يعتبر جزءا لا يتجزأ من هذه الوثيقة</p>
                                         <p style="font-size: 13px; margin-top:-10px !important;">بعد سداد قسط التأمين الوارد في هذه الوثيقة ، فان شركة أروب لتأمينات الممتلكات والمسؤوليات - مصر ش.م.م تضمن دفع التعويضات الخاصة بالشخص المؤمن عليه أو المستفيد طبقا للشروط والاستثناءات المرفقة وفقا لمبالغ التأمين المذكوره ادناه</p>
@@ -202,39 +141,14 @@
                                     <div  style="width: 100% !important; float:right !important; margin-top:10px !important;">
                                         <table class="table table-hover">
                                             <tr>
-                                                <th style=" color: #073e89; border: none !important;" scope="col">إجمالي القسط المستحق</th>
-                                                <td style="border: none !important; justify-content: right !important; text-align: left !important; float: right !important; margin-left -2px !important;"><t t-esc="o.total"/> EGP</td>
+                                                <th style="float:right !important; color: #073e89; border: none !important;" scope="col">إجمالي القسط المستحق</th>
+                                                <td style="border: none !important; justify-content: left !important; text-align: left !important; float: left !important; margin-left -2px !important;"><t t-esc="o.total"/> EGP</td>
                                             </tr>
-    <!--                                        <thead style="border-bottom: 1px solid black !important;">-->
-    <!--                                            <tr style="border-bottom: 1px solid black !important;">-->
-    <!--                                                <th style="text-align:center !important; border-bottom: 1px solid black !important;" scope="col">صافى القسط</th>-->
-    <!--                                                <th style="text-align:center !important; border-bottom: 1px solid black !important;" scope="col">نصف الدمغة النسبية</th>-->
-    <!--                                                <th style="text-align:center !important; border-bottom: 1px solid black !important;" scope="col">الضريبة النوعية</th>-->
-    <!--                                                <th style="text-align:center !important; border-bottom: 1px solid black !important;" scope="col">رسم الإشراف والرقابة</th>-->
-    <!--                                                <th style="text-align:center !important; border-bottom: 1px solid black !important;" scope="col">مصاريف الإصدار</th>-->
-    <!--                                                <th style="text-align:center !important; border-bottom: 1px solid black !important;" scope="col">إجمالي القسط المستحق</th>-->
-    <!--                    -->
-
-    <!--                                            </tr>-->
-    <!--                                        </thead>-->
-    <!--                                        <tbody>-->
-    <!--                                            <tr>-->
-    <!--                                                <td style="text-align:center !important;"><t t-esc="o.net_premium"/></td>-->
-    <!--                                                <td style="text-align:center !important;"><t t-esc="(o.net_premium*5)/100"/></td>-->
-    <!--                                                <td style="text-align:center !important;"><t t-esc="o.get_dimensional_stamp()"/></td>-->
-    <!--                                                <td style="text-align:center !important;"><t t-esc="o.net_premium* (0.6/100)"/></td>-->
-    <!--                                                <td style="text-align:center !important;"><t t-esc="o.get_issuing_fees()"/></td>-->
-    <!--                                                <td style="text-align:center !important;"><t t-esc="o.total"/></td>-->
-    <!--                                            </tr>-->
-    <!--					                    </tbody>-->
                                         </table>
                                     </div>
                                     <div style="width: 100% !important; float:right !important;">
                                         <p style="font-size: 13px; margin-top:-10px !important;">رسم الإشراف والرقابة + واحد فى الألف اعتماد وثيقة + اثنين في الألف مقابل صندوق حملة الوثائق</p>
-    <!--                                    <p style="font-size: 13px; margin-top:-10px !important;">القسط الإجمالى المستحق : <t t-esc="o.total"/></p>-->
-    <!--                                    <p style="font-size: 13px; margin-top:-10px !important; ">الوظيفة والعمر: <span t-field="o.job" />/<t t-esc="o.age"/> </p>-->
                                         <p style="font-size: 13px; margin-top:-10px !important;"><span style="border-bottom: 1px solid;">المستفيد (ين): </span> المستفيد في حالة الوفاة الناجمة عن حادث : <t t-if="o.eligible !=False" ><span>الورثة الشرعيون</span></t> </p>
-
                                     </div>
                                     <t t-if="o.eligible ==False" >
                                         <div  style="width: 100% !important; float:right !important; margin-top:10px !important;">
@@ -307,7 +221,7 @@
                         </t>
                         <t  t-if="o.policy_lang == 'en'">
                             <div class="page">
-                                <div class="row mt32 mb32" style="padding-left: 25px !important; padding-right: 25px !important;">
+                                <div class="" style="padding-left: 25px !important; padding-right: 25px !important; padding-top:10px !important;">
                                     <div  style="width: 100% !important; float:left !important;">
                                         <table class="table table-hover" style="border-top: 1px solid black !important;">
                                                 <tr style="border-top: 1px solid black !important;">
@@ -350,8 +264,8 @@
                                                     <th style="text-align: left !important;" scope="col">Period of Insurance</th>
                                                     <td style="text-align: left !important;">
                                                         <span><t t-esc="o.years"/> Year </span>
-                                                        <span style="padding-left:30px;">From : <t t-esc="datetime.datetime.strptime(o.issue_date, '%Y-%m-%d').strftime('%d/%m/%Y')"  /></span>
-                                                        <span style="padding-left:30px;">To : <t t-esc="datetime.datetime.strptime(o.expiry_date, '%Y-%m-%d').strftime('%d/%m/%Y')"  /></span>
+                                                        <span style="padding-left:30px;">From : <t t-esc="o.issue_date.strftime('%d/%m/%Y')"  /></span>
+                                                        <span style="padding-left:30px;">To : <t t-esc="o.expiry_date.strftime('%d/%m/%Y')"  /></span>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -403,8 +317,8 @@
                             </div>
                         </t>
                         <t  t-if="o.policy_lang == 'ar'">
-                            <div class="page" style="direction: rtl !important; font-size:15px !important;">
-                                <p style="page-break-after:always;">   </p>
+                            <div class="page" style=" page-break-after: always !important; direction: rtl !important; font-size:15px !important;">
+                                <div style="page-break-after: always !important;"/>
                                 <div style="margin-top:10px !important; ">
                                     <p style="text-align:start; padding-top:20px !important">
                                         - يستثنى المؤمن عليهم التي تقل أعمارهم عن 18عام و تزيد عن 65  عام
@@ -472,13 +386,13 @@
                         <t  t-if="o.policy_lang == 'ar'">
                             <div class="footer" style="float:left; width:100px;">
                                 <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">اروب لتأمينات الممتلكات والمسئوليات مصر - ش.م.م</span>
-                                <img class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                                <img style="width:100% !important;" class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
                             </div>
                         </t>
                         <t  t-if="o.policy_lang == 'en'">
                             <div class="footer" style="float:left; width:100px;">
                                 <span style="font-size: 10px !important; white-space: nowrap !important; overflow: hidden !important;">AROPE PROPERTIES &amp; LIABILITIES INSURANCE EGYPT - S.A.E</span>
-                                <img class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
+                                <img style="width:100% !important;" class="img img-responsive" src="/smart_travel_agency/static/img/1.png"/>
                             </div>
                         </t>
 
